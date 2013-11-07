@@ -3,6 +3,7 @@
 *~
 *.tmp
 temp/*
+.goenv/*
 
 # Created by http://gitignore.io
 
