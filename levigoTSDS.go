@@ -59,6 +59,34 @@ func PushTSDS_BaseBoth(key string, val string, key_time time.Time, db *levigo.DB
   return keytsds, timetsds
 }
 
+func PushNowTSDS(key string, val string, db *levigo.DB) string{
+  keytsds := KeyNameSpaceWithTime(key, time.Now())
+  ldbNS.PushNS(keytsds, val, db)
+  return keytsds
+}
+
+func PushNowTSDS_BaseKey(key string, val string, db *levigo.DB) string{
+  return PushNowTSDS(key, val, db)
+}
+
+func PushNowTSDS_BaseTime(key string, val string, db *levigo.DB) string{
+  timetsds := TimeNameSpaceWithKey(key, time.Now())
+  ldbNS.PushNS(timetsds, val, db)
+  return timetsds
+}
+
+func PushNowTSDS_BaseBoth(key string, val string, db *levigo.DB) (string, string){
+  key_time := time.Now()
+
+  keytsds := KeyNameSpaceWithTime(key, key_time)
+  ldbNS.PushNS(keytsds, val, db)
+
+  timetsds := TimeNameSpaceWithKey(key, key_time)
+  ldbNS.PushNS(timetsds, val, db)
+
+  return keytsds, timetsds
+}
+
 func DeleteTSDS(key string, db *levigo.DB) ldbNS.HashMap{
   ldbNS.DeleteNSRecursive(key, db)
   return ldbNS.ReadNSRecursive(key, db)
