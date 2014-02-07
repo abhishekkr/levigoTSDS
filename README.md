@@ -23,3 +23,5 @@ Also available Key Format is TimeStamp as Parent NameSpace:
 
 Either of these shall be used seeing better suited to your usecase.
 Both can be used together as well, but why?
+
+[![baby-gopher](https://raw2.github.com/drnic/babygopher-site/gh-pages/images/babygopher-badge.png)](http://www.babygopher.org)
