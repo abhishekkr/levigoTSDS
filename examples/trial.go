@@ -24,6 +24,8 @@ func main(){
   fmt.Println("<<<<<", ltsds.ReadTSDS("127.0.0.1:ping", db))
   fmt.Println("~~~~~", ltsds.DeleteTSDS("127.0.0.1:ping:2013:December:4:12:35", db))
   fmt.Println("=====", ltsds.ReadTSDS("127.0.0.1:ping", db))
+  fmt.Println("~~~~~", ltsds.DeleteTSDS("127.0.0.1:ping", db))
+  fmt.Println("=====", ltsds.ReadTSDS("127.0.0.1:ping", db))
   fmt.Println(">>>>>", ltsds.PushNowTSDS("127.0.0.1:ping", "up", db))
   fmt.Println("=====", ltsds.ReadTSDS("127.0.0.1:ping", db))
 }
